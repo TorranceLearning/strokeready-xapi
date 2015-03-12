@@ -1,16 +1,36 @@
-
+// Configure a TinCan instance (using TinCanJS from Rustici)
+//------------------------------------------//
 var tincan = new TinCan({
 	recordStores: [{
                 endpoint: "[endpoint]",
                 auth: "[Basic Base64 auth]",
                 allowFail: false
     }],
-	context: {	registration: "[]",
+	context: {	registration: "[XXXXX]",
 			platform: deviceName
 	}
 });
 
 TinCan.DEBUG = true;
+
+// Get, assign, and/or increment User
+// --------------------------------------------//
+var username =	"User " + localStorage.userCount,
+	email = 	"[predetermined email goes here]";
+localStorage["Username"] = username;
+localStorage["Email"] = email;
+
+function getUser() {
+	if (!localStorage.userCount) {
+		localStorage.userCount = 1;
+	}
+	username =	"User " + localStorage.userCount;
+	localStorage["Username"] = username;
+}
+
+function incrementUser() {
+	localStorage.userCount = Number(localStorage.userCount)+1;
+}
 
 // Get ISO timestamp
 // ----------------------------//
