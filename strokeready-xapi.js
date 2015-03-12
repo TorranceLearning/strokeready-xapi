@@ -6,7 +6,7 @@ var tincan = new TinCan({
                 allowFail: false
     }],
 	context: {	registration: "[]",
-				platform: deviceName
+			platform: deviceName
 	}
 });
 
